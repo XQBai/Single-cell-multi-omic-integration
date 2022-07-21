@@ -6,13 +6,13 @@ Single-cell multi-omics data analysis pipeline for defining the subclone archite
  2. Identified cellular components 
  3. Constructed subclones 
  
- '''
+ ```
  Rscript Preprocessing_data_scDNA.R
  Rscript run_pipeline_scDNA.R
  Rscript Plot_umap_scDNA.R
  Rscript Plot_evolution_scDNA.R
  Rscript Plot_subclones_heatmap_scDNA.R
- '''
+ ```
 ## scRNA-seq analysis: 
  1. Assigned cell cycle 
  2. Annotated cell types 
