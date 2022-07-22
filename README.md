@@ -14,9 +14,28 @@ Single-cell multi-omics data analysis pipeline for defining the subclone archite
  Rscript Plot_subclones_heatmap_scDNA.R
  ```
 ## scRNA-seq analysis: 
- 1. Assigned cell cycle 
- 2. Annotated cell types 
- 3. Extracted the epithelial cell
+ 1. Cell and gene quality control for each sample by Seurat
+ ```
+ Rscript Seurat_scRNA.R -m './example/P5931/scRNA/P5931_normal_1/outs/filtered_feature_bc_matrix/' -p 'P5931_normal_1'
+ Rscript Seurat_scRNA.R -m './example/P5931/scRNA/P5931_normal_2/outs/filtered_feature_bc_matrix/' -p 'P5931_normal_2'
+ Rscript Seurat_scRNA.R -m './example/P5931/scRNA/P5931_tumor_1/outs/filtered_feature_bc_matrix/' -p 'P5931_tumor_1'
+ Rscript Seurat_scRNA.R -m './example/P5931/scRNA/P5931_tumor_2/outs/filtered_feature_bc_matrix/' -p 'P5931_tumor_2'
+ ```
+ 
+ 2. Merged normal and tumor objects
+ ```
+ Rscript merge_seurat_scRNA.R
+ Rscript merge_sctransform_scRNA.R
+ Rscript find_markers_scRNA.R
+ ```
+ 
+ 3. Extracted the epithelial cell and selected the G0/G1 phase cells
+ ```
+ Rscript epi_subset_scRNA.R
+ Rscript find_markers_scRNA.R
+ Rscript  split_Gphase_scRNA.R
+ ```
+ 
 ## Integration analysis 
  1. Assigned epithelial single cells (G0G1 phase) from scRNA-seq into subclones of scDNA-seq
  2. Evaluated the subclone assignment by inferCNV package 
