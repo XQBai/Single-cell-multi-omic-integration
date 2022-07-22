@@ -38,9 +38,19 @@ Single-cell multi-omics data analysis pipeline for defining the subclone archite
  
 ## Integration analysis 
  1. Assigned epithelial single cells (G0G1 phase) from scRNA-seq into subclones of scDNA-seq
+ ```
+ Rscript Assign_subclone_corr_Integrate.R
+ ```
  2. Evaluated the subclone assignment by inferCNV package 
+ ```
+ Rscript run_infercnv_corr_Integrate.R
+ Rscript generate_mean_rna_dna_Integrate.R
+ Rscript Violin_mean_exp_cnv_Integrate.R
+ ```
  3. Discovered phenotype biology of subclones  
-
+ ```
+ Rscript run_GSVA_hallmark_Integrate.R
+ ```
 ## Data
 The scDNA-seq and scRNA-seq datasets generated for this study are available in NCBI's dbGAP repositories, accession numbers phs001711 and phs001818. 
 
